@@ -1,27 +1,18 @@
 package services
 
 import model.library.Book
-import javax.management.remote.rmi._RMIConnection_Stub
-
-/**
- * Created by IntelliJ IDEA.
- * User: glca
- * Date: 3/12/12
- * Time: 9:00 PM
- * To change this template use File | Settings | File Templates.
- */
 
 object BookService {
 
   private var books = Map.empty[String, Book]
 
-  def registerBook(book : Book) : Either[Book, Book] = {
+  def registerBook(book : Book) : Option[Book] = {
     books.get(book.id) match {
       case None => {
         books += book.id -> book
-        Right(book)
+        Some(book)
       }
-      case Some(b) => Left(b)
+      case Some(b) => None
     }
   }
 

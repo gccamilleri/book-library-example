@@ -3,26 +3,18 @@ package services
 import model.library.{User, Librarian, Borrower}
 import collection.mutable.Map
 
-/**
- * Created by IntelliJ IDEA.
- * User: glca
- * Date: 3/12/12
- * Time: 9:18 PM
- * To change this template use File | Settings | File Templates.
- */
-
 sealed trait UserService[A <: User] {
 
   protected val users : Map[String, A]
 
 
-  def registerUser(user: A) : Either[A, A] = {
+  def registerUser(user: A) : Option[A] = {
     users.get(user.id) match {
       case None => {
         users += user.id -> user
-        Right(user)
+        Some(user)
       }
-      case Some(l) => Left(l)
+      case Some(l) => None
     }
   }
 

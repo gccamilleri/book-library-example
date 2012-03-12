@@ -3,14 +3,6 @@ package controllers
 import play.api._
 import play.api.mvc._
 
-/**
- * Created by IntelliJ IDEA.
- * User: glca
- * Date: 3/12/12
- * Time: 8:58 PM
- * To change this template use File | Settings | File Templates.
- */
-
 object BookController extends Controller {
 
   def registerBook = Action {

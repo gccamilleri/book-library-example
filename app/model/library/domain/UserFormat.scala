@@ -3,14 +3,6 @@ package model.library.domain
 import model.library.{Borrower, Librarian}
 import play.api.libs.json._
 
-/**
- * Created by IntelliJ IDEA.
- * User: glca
- * Date: 3/12/12
- * Time: 10:26 PM
- * To change this template use File | Settings | File Templates.
- */
-
 object UserFormat {
 
   implicit object LibrarianFormat extends Format[Librarian] {
