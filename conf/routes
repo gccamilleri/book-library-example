@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Book
+POST    /book/register              controllers.BookController.registerBook
+POST    /book/deregister/:id        controllers.BookController.deregisterBook(id : String)
+GET     /book/:id                   controllers.BookController.getBook(id : String)
+PUT     /book/lend                  controllers.BookController.lendBook
+PUT     /book/return                controllers.BookController.returnBook
+
+# Librarian
+POST    /librarian/register         controllers.UserController.registerLibrarian
+POST    /librarian/deregister/:id   controllers.UserController.deregisterLibrarian(id : String)
+PUT     /librarian/update           controllers.UserController.updateLibrarian
+GET     /librarian/:id              controllers.UserController.getLibrarian(id : String)
+GET     /librarian/list             controllers.UserController.getLibrarians
+
+# Borrower
+POST    /borrower/register          controllers.UserController.registerBorrower
+PUT     /borrower/update            controllers.UserController.updateBorrower
+GET     /borrower/:id               controllers.UserController.getBorrower(id : String)
+GET     /borrower/list              controllers.UserController.getBorrowers
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
